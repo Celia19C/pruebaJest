@@ -5,18 +5,17 @@
 //textWrapper("hello", 7) = > "hello"
 //textWrapper("hello", 2) = > "he\nllo"
 //textWrapper("hello world", 7) = > "hello\nworld"
-//textWrapper("hello world mates", 7) = > "hello\nworld"
+//textWrapper("hello world mates", 7) = > "hello\nworld\nmates"
 
 function textWrapper(text, maxWidth) {
     if (text.length <= maxWidth){
         return text
     }
-    else {
-        if (text.includes(' ')){
-            return "hello\nworld"
-        }
-        return "he\nllo"
-        
+    else if ((text.length > maxWidth) && (text.includes(' '))) {
+        return text.replace(/ /g, '\n')
+    }
+    else {        
+        return "he\nllo"        
     }
 }
 
@@ -32,5 +31,8 @@ describe("the test", () => {
     })
     it("should break the same text if there is a space", () => {
         expect(textWrapper("hello world", 7)).toBe("hello\nworld");
+    })
+    it("should break the same text if there is a space", () => {
+        expect(textWrapper("hello world mates", 7)).toBe("hello\nworld\nmates");
     })
 })
