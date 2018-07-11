@@ -8,14 +8,15 @@
 //textWrapper("hello world mates", 7) = > "hello\nworld\nmates"
 
 function textWrapper(text, maxWidth) {
-    if (text.length <= maxWidth){
-        return text
-    }
-    else if ((text.length > maxWidth) && (text.includes(' '))) {
-        return text.replace(/ /g, '\n')
+    if (text.length > maxWidth){
+        if (text.includes(' ')) {
+            return text.replace(/ /g, '\n')
+        }
+
+        return text.replace(text[maxWidth],'\n' + text[maxWidth])
     }
     else {        
-        return "he\nllo"        
+        return text        
     }
 }
 
