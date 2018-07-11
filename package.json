@@ -1,0 +1,15 @@
+{
+  "name": "pruebajest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest-cli": "^23.4.0",
+    "save-dev": "^2.0.0"
+  }
+}
